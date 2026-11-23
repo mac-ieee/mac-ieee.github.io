@@ -6,8 +6,8 @@ The official website for the IEEE McMaster Student Branch, built with [Next.js](
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) >= 18
-- [pnpm](https://pnpm.io/) 9+
+- [Node.js](https://nodejs.org/) 24
+- [pnpm](https://pnpm.io/) as pinned in `package.json` (`corepack enable` on Node.js 24)
 
 ### Development
 
@@ -26,6 +26,24 @@ pnpm build
 
 ```sh
 pnpm start
+```
+
+## Deployment
+
+### GitHub Pages
+
+In the GitHub repository, set **Settings → Pages → Build and deployment → Source** to **GitHub Actions**. Once the workflow is on `main`, pushes to `main` publish the site. You can also run **Deploy to GitHub Pages** manually from `main`.
+
+The workflow uses the base path reported by GitHub Pages and builds for the repository URL or a configured custom domain. To build the static export locally, run `BUILD_TARGET=pages pnpm build`. The generated files are in `out/`.
+
+### Kubernetes fallback
+
+Run **Publish Kubernetes fallback image** in GitHub Actions to publish the ARM64 image to GHCR. Then, from a machine with access to the cluster, apply the existing manifests and restart the deployment to pull the new `:latest` image.
+
+```sh
+kubectl apply -f k8s/deployment.yaml
+kubectl -n ieee-namespace rollout restart deployment/ieeesb-mcmaster-website
+kubectl -n ieee-namespace rollout status deployment/ieeesb-mcmaster-website
 ```
 
 ## Project Structure

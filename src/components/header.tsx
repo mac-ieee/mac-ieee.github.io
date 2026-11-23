@@ -21,7 +21,7 @@ export function Header() {
         >
             <nav className="max-w-7xl mx-auto px-8 py-4 flex justify-between items-center">
                 <a href="#" className="flex items-center gap-3.5 no-underline">
-                    <img src="ieee-mcmaster-logo-.png" alt="IEEE McMaster" className="w-auto h-12 object-contain" />
+                    <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/ieee-mcmaster-logo-.png`} alt="IEEE McMaster" className="w-auto h-12 object-contain" />
                     <div className="flex flex-col gap-0.5">
                         <span className="font-['Space_Grotesk'] text-lg font-bold text-ieee-blue tracking-[-0.01em]">
                             IEEE McMaster

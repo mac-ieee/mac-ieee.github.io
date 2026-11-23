@@ -36,7 +36,7 @@ export function Hero() {
                         <div className="absolute rounded-full border-2 border-solid border-ieee-blue opacity-10 w-100 h-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-[circleFloat1_6s_ease-in-out_infinite]"></div>
                         <div className="absolute rounded-full border-2 border-dashed border-ieee-blue opacity-[0.08] w-130 h-130 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-[circleFloat2_6s_ease-in-out_infinite]"></div>
                         <img
-                            src="ieee-mcmaster-logo-.png"
+                            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/ieee-mcmaster-logo-.png`}
                             alt="IEEE McMaster"
                             className="w-95 h-auto max-w-[90%] drop-shadow-[0_20px_40px_rgba(0,98,155,0.15)] animate-[float_6s_ease-in-out_infinite] relative z-2 ml-26.25"
                         />
