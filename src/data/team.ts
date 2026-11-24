@@ -24,4 +24,10 @@ export const members: Member[] = [
         role: "Secretary and Lab Technician",
         bio: "Building innovative things.",
     },
+    {
+        initials: "JC",
+        name: "Joey Coifman",
+        role: "Micrcontroller/Microprocessor Team Lead",
+        bio: "Building innovative things.",
+    }
 ]
